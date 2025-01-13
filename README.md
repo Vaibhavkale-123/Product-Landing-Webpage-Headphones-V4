@@ -23,6 +23,8 @@ Here is a preview of what the website looks like:
 
 Product section with call-to-Action buttons (CTA)
 
+![Website Preview](https://github.com/Vaibhavkale-123/Product-Landing-Webpage-Headphones-V4/blob/main/Images/web2.png?raw=true) 
+
 ## License
 
 This project is for educational purposes only. No commercial use is allowed.
