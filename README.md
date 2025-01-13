@@ -15,6 +15,14 @@ The images used in this project are for practice purposes only and are owned by 
 Open the index.html file in your browser to view the landing page.
 Modify the HTML and CSS files to customize the content and styles as needed.
 
+## Website Look
+
+Here is a preview of what the website looks like:
+
+![Website Preview](https://github.com/Vaibhavkale-123/Product-Landing-Webpage-Headphones-V4/blob/main/Images/web.png?raw=true) 
+
+Product section with call-to-Action buttons (CTA)
+
 ## License
 
 This project is for educational purposes only. No commercial use is allowed.
