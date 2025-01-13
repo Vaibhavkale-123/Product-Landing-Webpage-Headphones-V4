@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" href="img/favicon-32x32.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display&display=swap" rel="stylesheet">
+    <title>Product Landing Page</title>
+</head>
+
+<body>
+    <header id="header">
+        <nav id="nav-bar">
+            <div class="logo-container">
+                <img src="img/sony.svg" alt="sony logo" id="header-img" class="logo">
+            </div>
+            <div class="container">
+                <input type="checkbox" id="menu">
+                <span></span>
+
+                <ul class="links">
+                    <li class="nav-link"><a href="#hero">home</a></li>
+                    <li class="nav-link"><a href="#features">features</a></li>
+                    <li class="nav-link"><a href="#video">video</a></li>
+                    <li class="nav-link"><a href="#products">products</a></li>
+                    <li class="nav-link"><a href="#contact">contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+                         <!-- hero section -->
+    <div class="hero" id="hero">
+        <div class="hero-content">
+            <h1>music only, nothing else!</h1>
+            <button><a href="https://shopatsc.com/pages/christmas-sale-offers-2024?cid=scp-in-33948&gad_source=1&gclid=CjwKCAiAg8S7BhATEiwAO2-R6mwk3jAguy_2DKLrsTn3cwvk1dGuHvfysgrTKBQsawzrqzAG5nT2NRoC93UQAvD_BwE">know more</a></button>
+        </div>
+    </div>
+    <script>
+        // Array of background images
+        const backgrounds = [
+            '../img/back2.jpg',
+            '../img/back1.jpg',
+            '../img/back3.jpg'
+        ];
+        
+        let currentIndex = 0;
+
+        // Function to change the background image
+        function changeBackground(index) {
+            const hero = document.getElementById('hero');
+            currentIndex = index;
+            hero.style.backgroundImage = `url('${backgrounds[currentIndex]}')`;
+        }
+
+        // Event listeners for buttons
+        document.getElementById('prevButton').addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + backgrounds.length) % backgrounds.length; // Cycle to previous image
+            changeBackground(currentIndex);
+        });
+
+        document.getElementById('nextButton').addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % backgrounds.length; // Cycle to next image
+            changeBackground(currentIndex);
+        });
+
+        // Initial call to set the first background
+        changeBackground(currentIndex);
+    </script>
+                        <!-- features section -->
+    <section class="features" id="features">
+        <h2>Features</h2>
+        <div class="feature">
+            <figure><img src="img/noise cancellation.svg" alt="mute icon"/>
+            </figure>
+            <figcaption><h3>complete noise cancellation</h3></figcaption>
+            <p>
+                Sony headphones feature industry-leading active noise cancellation with adaptive technology to block ambient sounds for an immersive audio experience.            </p>
+        </div>
+
+        <div class="feature">
+            <figure><img src="img/comfort.svg" alt="feather icon"/>
+            </figure>
+            <figcaption><h3>ultimate comfort</h3></figcaption>
+            <p>
+                Sony headphones offer ultimate comfort with lightweight designs, plush ear cushions, and ergonomic earcups for all-day wear.
+            </p>
+        </div>
+
+        <div class="feature">
+            <figure><img src="img/wireless-headphone.svg" alt="headphone icon"/>
+            </figure>
+            <figcaption><h3>wireless freedom</h3></figcaption>
+            <p>
+                Sony headphones offer wireless freedom with seamless Bluetooth connectivity, long battery life, and superior sound quality for an unparalleled listening experience.            </p>
+        </div>
+
+        <div class="feature">
+            <figure><img src="img/premium.svg" alt="crown icon"/>
+            </figure>
+            <figcaption><h3>premium sound</h3></figcaption>
+            <p>
+                Sony headphones deliver premium sound with Hi-Res Audio, LDAC codec, and custom drivers for rich, immersive, and crystal-clear audio.            </p>
+        </div>
+    </section>
+
+                     <!-- video -->
+    <section class="video" id="video">
+        <h3>get some more information with our brand video</h3>
+        <iframe src="C:\Users\anilb\OneDrive\Desktop\Web dev\best headphone\img\Sony Noise Cancelling Headphones WH-1000XM5 Official Product Video.mp4" id="video"></iframe>
+    </section>
+
+                     <!-- products -->
+                     <section class="products" id="products">
+                        <h2>products</h2>
+                        <p class="sub-heading">these are our bestsellers</p>
+                    
+                        <div class="product">
+                            <img src="C:\Users\anilb\OneDrive\Desktop\Web dev\best headphone\img\1st.jpg" alt="WH-1000XM4 Noise Cancelling Headphones" class="product-image">
+                            <h3>WH-1000XM4 Noise Cancelling Headphones</h3>
+                            <span>&#8377; 19,990</span>
+                           
+                            <button><a href="https://www.amazon.in/Sony-WH-1000XM4-Cancelling-Headphones-Bluetooth/dp/B0863TXGM3/ref=sr_1_3?crid=S37WVHVUZVU6&dib=eyJ2IjoiMSJ9.KiIeRLYdJ3HMV3b6j61tK3bfWoYKq1sYYs96aFpJRj6A1Lcf-IfjKV3fzR_aMmlOhtCITau2qNQMUVLP7Ja-OgeNrmNUqXZfsh4pHIgVHbfTi_a3lEfDkMSHk7USYAf7lclmqpS_Upq4SxrxA007haGXMMAWHgjT_DROcfwuKP7V6_CFJgTlOiijma5AlJ-OuZ4CgF4Tc2d04QfJw8xqpxDGVx5BMI66rEH0A2_mpMA.DmBO0afLDCiCzPAG_VFXYMOXPDsPdGCga6SI746Yh-Y&dib_tag=se&keywords=WH-1000XM4+Noise+Cancelling+Headphones&qid=1735480395&sprefix=wh-1000xm4+noise+cancelling+headphones%2Caps%2C487&sr=8-3">buy now</a></button>
+                        </div>
+                    
+                        <div class="product">
+                            <img src="file:///C:/Users/anilb/OneDrive/Desktop/Web%20dev/best%20headphone/img/2nd.webp" alt="WH-XB700 Bluetooth Wireless Headphones" class="product-image">
+                            <h3>WH-XB700 Bluetooth Wireless Headphones</h3>
+                            <span>&#8377; 9,990</span>
+                            
+                            <button><a href="https://www.amazon.in/Sony-WH-XB700-Wireless-Extra-Headphones/dp/B07QC2YJWG/ref=sr_1_5?crid=35XRWQBXTTXZ6&dib=eyJ2IjoiMSJ9.PzJCspXWIZdJ2wmYIskv03pOkZ2zmxW4o386haybCgYdSNKgJx2zssZQxfi-mYIgRsH0DXbaS4beNvjaG8ZxiGrsTJuhvxxg8z2Rwxr1-sPEI2nDJB9FO4hIhJ_MYJUfz-FZUQhYV_0nu-UTIQt5cM2ZHpt7ykP3wjQVJojQ9H2d8yl2JUkIUcnGMIqGpr_9N3SLVRktrd3qcgWCiyvWjRrqX_25HNwF6KeKCySlgR4.Wk7UUNfPVzhzKyu6F_Y5IqbsR-akuYFZGSIxN61VmA4&dib_tag=se&keywords=WH-XB700+Bluetooth+Wireless+Headphones&qid=1735480558&sprefix=wh-xb700+bluetooth+wireless+headphones%2Caps%2C277&sr=8-5">buy now</a></button>
+                        </div>
+                    
+                        <div class="product">
+                            <img src="file:///C:/Users/anilb/OneDrive/Desktop/Web%20dev/best%20headphone/img/3rd.webp" alt="WH-CH5010 Wireless Headphones" class="product-image">
+                            <h3>WH-CH5010 Wireless Headphones</h3>
+                            <span>&#8377; 4,990</span>
+                            
+                            <button><a href="https://www.amazon.in/Sony-Bluetooth-Headphones-Multipoint-Connectivity/dp/B0BS1RT9S2/ref=sr_1_6?crid=2ED91WZKW30QO&dib=eyJ2IjoiMSJ9.A2kPY0OJcqjQ9N5sMB05VFQPjWXZIO2S1F_VWCXqTWA1cnZE6xB-i2oO9p4lUSkPATHHUR8tMVtq4DybC2ecJ67S_OSV0dpSRxe0xHOQFuLOs0hJp8P8zf3wcYjPRZ5EfE6rFw1PXcLAMX54x4Cjtqon-K18oNTGIWfLXiiRwJ6fCOCLE-c7XVp47X21KBP0NtseTRwXzuyg9MohbAhh9yHsmTi2LhhAKvaV1F2XSAsYAXOQvE8rnAhQlOInSdkrnvdVlrRmS0sIpxc0ihdtnmcCjfBUhnystW-0krFkS0o0_49H-jDzD092n24CqmW3myUyiWnCX0SJAQIDkGgni4mQUDOGslo5ClqdPreBH5id8bKawL9jqO7uCoo3usayVhgub7nAEoUX1v7Uw3Oz1eH7SPtdvHQHSO0dqCdfhZ_HLvSWteF9zWplM4jeJRn5.xMkamgAOTQXsYNamn6U-01P5_9a5MfP3xc-2Kwm44ZM&dib_tag=se&keywords=WH-CH5010%2BWireless%2BHeadphones&qid=1735480621&sprefix=wh-ch5010%2Bwireless%2Bheadphones%2Caps%2C289&sr=8-6&th=1">buy now</a></button>
+                        </div>
+                    </section>
+
+                    <!-- contacts -->
+    <footer id="contact">
+        <h2>contact us</h2>
+        <form action="#" id="form">
+            <input type="email" id="email" placeholder="example@email.com" required>
+            <input type="submit" id="submit">
+        </form>
+        <div class="social-link">
+           <a href="https://x.com/im_vaibhavak04?t=RL_u98lAxayJ_zT98zowRQ&s=08"><img src="img/twitter.svg" alt="twitter logo"></a>
+            <a href="https://github.com/Vaibhavkale-123" target="_blank"><img src="img/github.svg" alt="github logo"></a>
+            <a href="https://www.linkedin.com/in/vaibhav-kale-629713259?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B%2B%2Bbja6CHTnC24VjzSm1jSA%3D%3D" target="_blank"><img src="img/linkedin.svg" alt="linkedin logo"></a>
+        </div>
+    </footer>
+</body>
+
+</html>
