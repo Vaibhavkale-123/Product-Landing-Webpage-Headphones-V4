@@ -1,0 +1,580 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+    line-height: 1.5;
+    font-size: 18px;
+}
+
+/* h2 gradient style */
+
+h2 {
+    font-family: 'Playfair Display', sans-serif;
+    text-transform: uppercase;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    grid-column: 1 / -1;
+    gap: 10px;
+}
+
+h2::before, h2::after {
+    content: '';
+    height: 3px;
+    width: 100%;
+    display: block;
+}
+
+/* header styles */
+
+#header {
+    width: 100%;
+    background: linear-gradient(135deg, #6a5acd, #ff69b4); /* Gradient from slate blue to hot pink */
+    height: 9vh;
+    position: fixed;
+    z-index: 4;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow for depth */
+    transition: background 0.3s ease; /* Smooth transition for background change */
+}
+
+#nav-bar {
+    padding: 0 20px;
+    height: 9vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.logo {
+    height: 40px; /* Increased logo size for better visibility */
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.logo:hover {
+    transform: scale(1.1); /* Slightly enlarge logo on hover */
+}
+
+.links {
+    gap: 20px;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.links a {
+    color: #ffffff; /* White text for contrast */
+    text-transform: capitalize;
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative; /* Positioning for pseudo-elements */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.links a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ffeb3b; /* Bright yellow underline */
+    transition: width 0.3s ease; /* Smooth transition for underline */
+    position: absolute;
+    left: 50%;
+    bottom: -5px; /* Position below the text */
+    transform: translateX(-50%); /* Center the underline */
+}
+
+.links a:hover, .links a:active {
+    color: #ffeb3b; /* Change text color to bright yellow on hover */
+}
+
+.links a:hover::after {
+    width: 100%; /* Expand underline on hover */
+}
+
+/* Checkbox */
+.container input {
+    display: none;
+}
+
+/* hero section */
+
+.hero {
+    background-image: url('../img/back2.jpg'), url('../img/back3.jpg'), url('../img/back1.jpg'); /* List of background images */
+    background-size: cover, cover, cover; /* Ensure all images cover the area */
+    background-position: center center, center center, center center; /* Center all images */
+    height: 100vh; /* Set height for the hero section */
+    position: relative;
+    overflow: hidden;
+    transition: background-image 0.5s ease; /* Smooth transition for background change */
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Darker overlay for better contrast */
+    z-index: 1; /* Ensure overlay is above the background */
+}
+
+.hero-content {
+    position: relative; /* Positioning for content */
+    text-align: center;
+    height: 100%;
+    font-size: 2.5rem; /* Increased font size for emphasis */
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    text-transform: capitalize;
+    z-index: 2; /* Ensure content is above the overlay */
+    animation: fadeIn 1s ease; /* Fade-in animation for content */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content h1 {
+    font-weight: 700; /* Bolder font for emphasis */
+    font-family: 'Playfair Display', serif; /* Ensure serif font is applied */
+    letter-spacing: 1px; /* Slightly increase letter spacing */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
+}
+
+.hero button {
+    border: 2px solid rgb(252, 240, 5);
+    background: transparent;
+    padding: 12px 24px; /* Increased padding for a more substantial button */
+    border-radius: 25px; /* More rounded corners for a modern look */
+    color: rgb(252, 240, 5); /* Match button text color with border */
+    font-weight: bold; /* Bold text for emphasis */
+    font-size: 1.1rem; /* Slightly larger font size */
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.hero button:hover {
+    background: rgba(252, 240, 5, 0.3); /* Lighter background on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    box-shadow: 0 4px 15px rgba(252, 240, 5, 0.5); /* Add shadow on hover */
+}
+
+.hero-content a {
+    font-size: 1rem; /* Standard font size */
+    color: rgb(252, 240, 5); /* Changed to match button color */
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.hero-content a:hover {
+    color: rgba(255, 255, 255, 0.8); /* Lighter color on hover */
+    text-shadow: 0 0 5px rgba(252, 240, 5, 0.8); /* Glowing effect on hover */
+}
+
+/* features */
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    justify-items: center;
+    gap: 20px;
+    background: #1a1a1a; /* Darker background for better contrast */
+    color: #e0f7fa; /* Softer light blue for text */
+    padding: 50px 20px;
+    border-radius: 8px; /* Rounded corners for the features section */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.features h2 {
+    text-align: center; /* Center the heading */
+    margin-bottom: 30px; /* Space below the heading */
+    font-size: 2em; /* Larger font size for emphasis */
+    color: #e0f7fa; /* Consistent color with the rest of the text */
+}
+
+.features img {
+    width: 60px; /* Increased size for better visibility */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 15px; /* Space between image and caption */
+    transition: transform 0.3s ease; /* Smooth scaling on hover */
+}
+
+.features img:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.feature {
+    padding: 20px;
+    border: 1px solid #444; /* Darker border for better contrast */
+    border-radius: 8px; /* Rounded corners for feature cards */
+    text-align: center;
+    background: #2a2a2a; /* Darker background for feature cards */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.feature:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+}
+
+.feature figcaption {
+    color: #b0bec5; /* Softer silver color for captions */
+    text-transform: capitalize;
+    margin-top: 10px; /* Space above the caption */
+    font-size: 1em; /* Standard font size */
+}
+
+/* video */
+
+.video {
+    background-color: #f7f7f7; /* Light background for contrast */
+    border-radius: 8px; /* Rounded corners for a softer look */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin: 20px; /* Spacing around the video container */
+    overflow: hidden; /* Ensures child elements don't overflow */
+}
+
+.video h3 {
+    text-transform: capitalize;
+    padding: 10px 15px; /* Adjusted padding for a more balanced look */
+    font-size: 1.5em; /* Slightly larger font size */
+    color: #333; /* Darker text color for better readability */
+    margin: 0; /* Remove default margin */
+    background-color: #fff; /* White background for the title */
+    border-bottom: 1px solid #eaeaea; /* Subtle border for separation */
+}
+
+.video iframe {
+    width: 100%; /* Full width for responsiveness */
+    border: none;
+    height: 50vh; /* Maintain height */
+    display: block; /* Ensures no extra space below the iframe */
+}
+
+/* Optional: Add hover effect for the video container */
+.video:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+    transition: box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.products h2::before {
+    background: linear-gradient(to left, black, transparent);
+}
+
+.products h2::after {
+    background: linear-gradient(to right, black, transparent);
+}
+
+/* products */
+
+.products {
+    padding: 50px 15vw;
+    gap: 20px;
+    justify-items: center;
+    background: #f5f5f5; /* Changed to a light gray for a softer look */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+}
+
+.products .sub-heading {
+    grid-column: 1 / -1;
+    text-transform: capitalize;
+    font-size: 1.5em; /* Increased font size for emphasis */
+    margin-bottom: 20px; /* Space below the sub-heading */
+    text-align: center; /* Center the sub-heading */
+}
+
+.product {
+    display: flex; /* Use flexbox for better alignment */
+    flex-direction: column; /* Stack elements vertically */
+    border: 2px solid #ddd; /* Light border for a softer look */
+    border-radius: 8px; /* Rounded corners for a modern feel */
+    text-align: center;
+    background: #fff; /* White background for product cards */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+    overflow: hidden; /* Prevent overflow */
+}
+
+.product:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+.product h3 {
+    padding: 10px 5px;
+    background: #E5E4E2; /* Light gray background for the title */
+    margin: 0; /* Remove default margin */
+}
+
+.product span {
+    font-size: 20px;
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #333; /* Darker color for better readability */
+}
+
+.product button {
+    align-self: center;
+    justify-self: center;
+    display: grid;
+    margin: 10px;
+    border-radius: 5px; /* Less rounded corners for a more technical look */
+    background: linear-gradient(90deg, #1e90ff, #00bfff); /* Cool blue gradient for a modern look */
+    padding: 12px 20px; /* Adjusted padding for a more balanced button */
+    border: 1px solid #0072ff; /* Solid border for a cleaner look */
+    color: #ffffff; /* White text for better contrast */
+    font-weight: bold; /* Bold text for emphasis */
+    font-size: 1em; /* Standard font size */
+    text-transform: uppercase; /* Uppercase text for a more impactful look */
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+    cursor: pointer; /* Pointer cursor for better UX */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.product button:hover {
+    background: linear-gradient(90deg, #00bfff, #1e90ff); /* Reverse gradient on hover */
+    transform: scale(1.02); /* Slightly enlarge on hover */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Deeper shadow effect on hover */
+}
+
+.product a {
+    font-family: 'Noto Serif Display', serif; /* Ensure serif font is applied */
+    text-decoration: none;
+    font-size: 1em; /* Standard font size */
+    color: #ffffff; /* White color for better contrast */
+    font-weight: bold;
+    text-transform: capitalize;
+    padding: 10px 15px; /* Added padding for a button-like appearance */
+    background-color: #0072ff; /* Solid blue background for the link */
+    border-radius: 5px; /* Less rounded corners for a more technical look */
+    transition: background-color 0.3s ease, color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition for hover effects */
+    display: inline-block; /* Make the link behave like a block element */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.product a:hover {
+    background-color: #0056b3; /* Darker blue background on hover */
+    color: #ffffff; /* Keep text color white on hover */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Subtle glowing effect on hover */
+}
+
+.product p {
+    padding: 10px;
+    color: #666; /* Lighter color for description text */
+}
+.product-image {
+    width: 100%; /* Full width for responsiveness */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 10px; /* Space between image and text */
+    transition: transform 0.3s ease; /* Smooth scaling on hover */
+}
+
+.product-image:hover {
+    transform: scale(1.05); /* Slightly enlarge image on hover */
+}
+/* contacts */
+
+footer {
+    color: #e0f7fa; /* Softer light blue for better readability */
+    text-align: center;
+    gap: 30px;
+    display: grid;
+    padding: 50px 10px 10px;
+    background: #1a1a1a; /* Darker background for contrast */
+    justify-items: center;
+    border-top: 5px solid #00bcd4; /* Top border for separation */
+}
+
+footer h2 {
+    white-space: nowrap;
+    font-size: 1.8em; /* Increased font size for emphasis */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+input:focus {
+    outline: none;
+}
+
+input[type=email] {
+    border: 3px solid transparent;
+    border-image: linear-gradient(45deg, #00bcd4, #ffeb3b); /* Changed to light blue and sunny yellow */
+    border-image-slice: 1;
+    font-size: 1em; /* Standard font size */
+    padding: 10px;
+    margin-bottom: 10px;
+    display: block;
+    border-radius: 5px; /* Rounded corners for input */
+    transition: border-color 0.3s ease; /* Smooth transition for focus effect */
+}
+
+input[type=email]:focus {
+    border-color: #00bcd4; /* Change border color on focus */
+}
+
+input[type=submit] {
+    font-weight: bold;
+    padding: 10px 20px; /* Increased padding for a more substantial button */
+    text-transform: uppercase;
+    background: linear-gradient(45deg, #63f147, #ffeb3b); /* Bright gradient */
+    font-size: 1em; /* Standard font size */
+    font-family: 'Playfair Display', serif; /* Ensure serif font is applied */
+    cursor: pointer;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    border: none;
+    transition: background 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+}
+
+input[type=submit]:hover {
+    background: linear-gradient(45deg, #ffeb3b, #63f147); /* Reverse gradient on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.social-link a {
+    margin: 5px;
+    color: #00bcd4; /* Bright color for social links */
+    text-decoration: none; /* Remove underline */
+    font-size: 1.2em; /* Slightly larger font size */
+    transition: color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.social-link a:hover {
+    color: #ffeb3b; /* Change color on hover */
+    text-shadow: 0 0 5px rgba(255, 235, 59, 0.7); /* Glowing effect on hover */
+}
+
+/* media queries */
+
+@media screen and (min-width: 1280px) {
+    .features {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (min-width: 801px) and (max-width: 1024px) {
+    .features {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* ipad pro portrait */
+
+@media screen and (width: 1024px) and (orientation: portrait) {
+    .video iframe {
+        width: 80vw;
+        height: 30vh;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    /* nav menu */
+    #nav-bar {
+        padding-right: 0;
+    }
+    .links li {
+        padding-top: 15px;
+    }
+    .links li:last-child {
+        padding-bottom: 15px;
+    }
+    .links {
+        display: block;
+        text-align: center;
+        width: 100vw;
+        position: absolute;
+        background: white;
+        max-height: 0;
+        margin-top: 232px;
+        overflow: hidden;
+        transition: all 0.4s ease-in-out;
+    }
+    .container {
+        justify-items: end;
+        display: grid;
+        position: relative;
+        align-items: center;
+    }
+    .container input {
+        height: 40px;
+        display: block;
+        position: absolute;
+        width: 50px;
+        z-index: 3;
+        opacity: 0;
+    }
+    .container span {
+        left: -10px;
+        display: block;
+        width: 40px;
+        position: relative;
+        height: 4px;
+        background: black; /* Changed to black */
+    }
+    .container span::before, .container span::after {
+        content: "";
+        height: 100%;
+        background: black; /* Changed to black */
+        width:  100%;
+        position: absolute;
+        bottom: 10px;
+        transition: all 0.3s ease-out;
+    }
+    .container span::after {
+        top: 10px;
+    }
+    .container input:checked~.links {
+        display: block;
+        position: absolute;
+        max-height: 1000px;
+    }
+    .container input:checked~span {
+        background: transparent;
+    }
+    .container input:checked~span::before {
+        transform: rotate(-45deg);
+        bottom: 0;
+    }
+    .container input:checked~span::after {
+        transform: rotate(45deg);
+        top: 0;
+    }
+    /* video */
+    .video iframe {
+        width: 100vw;
+        height: 35vh;
+    }
+    .products {
+        padding: 50px 30px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .products {
+        grid-template-columns: 1fr;
+    }
+}
